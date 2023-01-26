@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Brian's Calculator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <label for="fNumInput">First Number</label>
+    <input id="textId" type="text" placeholder="1st Num" oninput="setFirstNum(event)" size="30">
+
+    <label for="lNumInput">Last Number</label>
+    <input id="textId" type="text" placeholder="2nd Num" oninput="setLastNum(event)" size="30">
+    <br>
+    <button onclick="doAddition(event)">Add</button>
+    <button onclick="doSubtraction(event)">Subtract</button>
+    <button onclick="doMultiplication(event)">Multiply</button>
+    <button onclick="doDivision(event)">Division</button>
+
+    <div>
+        <h2>Results/History</h2>
+    </div>
+
+    <div id="resultDiv">
+
+
+    </div>  
+    
+</body>
+<script>
+
+    let fnum = 0;
+    let lnum = 0;
+
+    let result = 0;
+
+    let operationStr = "";
+
+    let pastOperations = [];
+
+    function setFirstNum(e = new Event()){
+        fnum = e.target.value;
+    }
+
+    function setLastNum(e = new Event()){
+        lnum = e.target.value;
+    }
+
+    function doAddition(e = new Event()){
+        result = +fnum + +lnum;
+        operationStr = fnum + " + " + lnum + " = " + result;
+        pastOperations.push(operationStr);
+        showResult(e);
+    }
+
+    function doSubtraction(e = new Event()){
+        result = fnum - lnum;
+        operationStr = fnum + " - " + lnum + " = " + result;
+        pastOperations.push(operationStr);
+        showResult(e);
+    }
+
+    function doMultiplication(e = new Event()){
+        result = fnum * lnum;
+        operationStr = fnum + " * " + lnum + " = " + result;
+        pastOperations.push(operationStr);
+        showResult(e);
+    }
+
+    function doDivision(e = new Event()){
+        result = fnum / lnum;
+        operationStr = fnum + " / " + lnum + " = " + result;
+        pastOperations.push(operationStr);
+        showResult(e);
+    }
+
+    function showResult(e = new Event()){
+        const resultDiv = document.getElementById("resultDiv");
+
+        resultDiv.innerHTML = '';
+
+        let copy = pastOperations.map(x => x);
+
+        for(const operation of copy.reverse()){
+            const heading = document.createElement("h3");
+            heading.innerText = operation;
+
+            // append that element to the div
+            resultDiv.appendChild(heading);
+        }
+    }
+
+</script>
+</html>

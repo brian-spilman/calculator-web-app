@@ -1,0 +1,32 @@
+body {
+    background-size: cover;
+    font-family: 'Teko', sans-serif;
+    text-align: center;
+}
+
+h1 {
+  color: aquamarine;
+  font-size: 80px;
+  background-image: url('https://thumbs.gfycat.com/CourageousCircularGentoopenguin-size_restricted.gif');
+}
+
+p {
+  color: aquamarine;
+  font-size: 40px;
+  background-image: url('https://thumbs.gfycat.com/CourageousCircularGentoopenguin-size_restricted.gif');
+}
+
+label {
+    font-size: 30px;
+}
+
+#textId
+{
+    height:25px;
+    font-size: 25px;
+}
+
+button {
+    height:40px;
+    font-size: 30px;
+}
